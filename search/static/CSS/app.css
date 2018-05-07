@@ -1,0 +1,34 @@
+.hero-image {
+
+	min-height:30%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+/*Targets search dropdown in header*/
+.form-control.col-sm-2 {
+	height: auto !important;
+}
+
+body.index {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+.displaybox {
+	background-color: rgb(40, 40, 40);
+	border: 1px 1px black;
+}
+
+.displaybox > h3 {
+	text-align: center;
+	padding: 10px;
+}
+
+.displaybox > p {
+	text-align: center;
+	padding: 10px;
+}

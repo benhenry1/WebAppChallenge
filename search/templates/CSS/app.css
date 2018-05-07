@@ -1,9 +1,0 @@
-.hero-image {
-	background-image: url("../pictures/indexbanner.jpg");
-
-	height:30%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	position: relative;
-}

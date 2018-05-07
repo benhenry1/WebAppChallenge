@@ -14,8 +14,6 @@
 <body class="index" style="background: url(" {% static "/indexbanner.jpg" %}  ")">
 	  {%load static%}
 	  <img class="banner" style="max-width: 100%; position: absolute; z-index: -1;" src="{%static "/indexbanner.jpg"%}">
-
-
   <div class="row">
     <div class="col-12">
       <nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
@@ -38,8 +36,17 @@
   </div>
 
   <div class="row content">
-    <div class="col-12">
-      <!-- <img src="./pictures/indexbanner.jpg" class="img-fluid"> -->
+    <div class="col-4 displaybox">
+      <h3>Name</h3>
+      <p> {% username %} </p>
+    </div>
+    <div class="col-4 displaybox">
+      <h3>Completed Prints</h3>
+      <p> {% numPrints %} </p>
+    </div>
+    <div class="col-4 displaybox">
+      <h3>Number of Printers</h3>
+      <p> {% numPrinters %} </p>
     </div>
 
   </div>
