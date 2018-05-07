@@ -55,7 +55,7 @@ ROOT_URLCONF = 'allevi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/search/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
