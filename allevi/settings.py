@@ -64,8 +64,11 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
             ],
-        },
+            'libraries':{
+                'usertags': 'search.templatetags.usertags',
+            }
     },
+},
 ]
 
 WSGI_APPLICATION = 'allevi.wsgi.application'

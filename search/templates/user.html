@@ -38,15 +38,16 @@
   <div class="row content">
     <div class="col-4 displaybox">
       <h3>Name</h3>
-      <p> {% username %} </p>
+      {% load usertags %}
+      <p> {{ username }} </p>
     </div>
     <div class="col-4 displaybox">
       <h3>Completed Prints</h3>
-      <p> {% numPrints %} </p>
+      <p> {{ numPrints }} </p>
     </div>
     <div class="col-4 displaybox">
       <h3>Number of Printers</h3>
-      <p> {% numPrinters %} </p>
+      <p> {{ numPrinters }} </p>
     </div>
 
   </div>
