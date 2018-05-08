@@ -26,3 +26,4 @@ def getUserContext(name):
 
 	dic = { 'username': name, 'numPrints': numprints, 'numPrinters': 0}
 	return dic;
+

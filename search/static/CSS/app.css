@@ -19,16 +19,24 @@ body.index {
 }
 
 .displaybox {
-	background-color: rgb(40, 40, 40);
-	border: 1px 1px black;
+	background-color: rgb(120, 120, 120);
+	border: 1px solid black;
+	margin: 10px;
+	opacity: 60%;
+	position: relative;
+	left: 10px;
 }
 
 .displaybox > h3 {
 	text-align: center;
+	font-weight: bold;
+	color: white;
 	padding: 10px;
 }
 
 .displaybox > p {
 	text-align: center;
 	padding: 10px;
+	font-size: 2rem;
+
 }
