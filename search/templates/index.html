@@ -10,6 +10,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<!-- Google charts -->
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+	  google.charts.load('current', {packages: ['corechart']});
+	  google.charts.setOnLoadCallback(drawChart);
+	  function drawChart() {
+	  	var data = new google.visualization.DataTable();
+	  	data.addColumn('number', 'Live Percent');
+	  	data.addColumn('number', 'Percentage Frequency');
+	  	data.addRows( {{successData|safe}} );
+
+	  	var chart = new google.visualization.LineChart(document.getElementById('successChart'));
+	  	chart.draw(data,{width: 400, height: 240, title: "Frequency of final Live Percent", hAxis: { title: 'Live % Of Final Print'}})
+	  }
+	</script>
   </head>
 <body class="index" style="background: url(" {% static "/indexbanner.jpg" %}  ")">
 	  {%load static%}
@@ -20,7 +36,7 @@
     <div class="col-12">
       <nav class="navbar navbar-dark bg-dark flex-md-nowrap p-0 shadow">
       {% load static %}	
-    <img class="navbar-brand col-sm-3 col-md-2 mr-0" src="{% static "/allevi.png" %}">
+    <a class="col-sm-3 col-md-2" href="/search"><img class="navbar-brand mr-0" src="{% static "/allevi.png" %}"></a>
     <input id="searchbar" class="form-control col-sm-3 col-lg-6 form-control-dark w-100" type="text" placeholder="Search by" aria-label="Search">
     <select class="form-control col-sm-2" id="searchtype">
         <option>User</option>
@@ -28,11 +44,6 @@
         <option>Test</option>
     </select>
     <button id="searchbutton" class='btn btn-primary' role="search">Search</button>
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link" href="#">Sign out</a>
-      </li>
-    </ul>
     </nav>
     </div>
   </div>
@@ -52,8 +63,24 @@
         User Statistics</a>
       </h4>
     </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-      <div class="panel-body">User statistics will go here! Number of unique users, number of registered devices, avg devices per user</div>
+		<div id="collapse1" class="panel-collapse collapse in">
+		      <div class="panel-body">
+		      	<div class="row content">
+		      		 <div class="col-2"></div>
+				    <div class="col-4 displaybox">
+				      <h3>Number of Users</h3>
+				      <p> {{ userCount }} </p>
+				    </div>
+		   
+				    <div class="col-4 displaybox">
+				      <h3>Average # Prints per User</h3>
+				      <p> {{ numPrints }} </p>
+				    </div>
+				     <div class="col-2"></div>
+		</div>
+
+
+  	</div>
     </div>
   </div>
   <div class="panel panel-default">
@@ -64,7 +91,13 @@
       </h4>
     </div>
     <div id="collapse2" class="panel-collapse collapse">
-      <div class="panel-body">How successful is the average print? What are some common settings?</div>
+      <div class="panel-body">
+      	How successful is the average print?
+      	<div id="successChart">
+
+      	</div>
+      	How successful is the average print? What are some common settings?
+      </div>
     </div>
   </div>
   <div class="panel panel-default">
@@ -75,7 +108,26 @@
       </h4>
     </div>
     <div id="collapse3" class="panel-collapse collapse">
-      <div class="panel-body">Settings statistics about the best (10? 100? 1000?) prints.</div>
+      <div class="panel-body">
+      		A list of the best 100 prints!
+      		<div class="printTableContainer">
+          {% for print in bestPrints %}
+          <div class="printTable row">
+            <div class="col-2"></div>
+              <div class="col-1 printTableItem">{{print.0}}</div>
+              <div class="col-1 printTableItem">{{print.1}}</div>
+              <div class="col-1 printTableItem">{{print.2}}</div>
+              <div class="col-1 printTableItem">{{print.3}}</div>
+              <div class="col-1 printTableItem">{{print.4}}</div>
+              <div class="col-1 printTableItem">{{print.5}}</div>
+              <div class="col-1 printTableItem">{{print.6}}</div>
+              <div class="col-1 printTableItem">{{print.7}}</div>
+              <div class="col-1 printTableItem">{{print.8}}</div>
+            <div class="col-2"></div>
+          </div>
+          {%endfor%}
+        </div>
+      </div>
     </div>
   </div>
 </div>
