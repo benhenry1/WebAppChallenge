@@ -17,6 +17,8 @@ I built a simple website using Django's Python Webframework. Print data is store
 The data was computer generated, so the numbers are a little boring (100 users each with 100 prints), but with the way the site it set up you could continuously update the database with new entries and all pages would update instantly.
 
 ## RUN INSTRUCTIONS:
+Make sure you have the latest version of Django: https://www.djangoproject.com/download/
+
 1. Download the source into a directory.
 2. In the root directory, run these commands:
 > $ python manage.py makedb
