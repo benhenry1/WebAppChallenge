@@ -29,6 +29,8 @@ def getUserContext(name):
 
 	allPrints = getAllPrints(j);
 	bestPrints = getBestPrintsBy(Job.objects.all(), name);
+
+
 	dic = { 
 			'username': name, 
 			'numPrints': numprints, 
@@ -64,17 +66,29 @@ def getHomeContext():
 	n = Job.objects.values(username).order_by(username).annotate(the_count=Count(username))
 	numusers = len(n)
 
-	numprints = Job.objects.all().count()
+	allJobs = Job.objects.all();
+
+	numprints = allJobs.count()
 	avgprints = numprints / numusers;
 
 	successData = getSuccessData();
 
-	bestPrints = getBestPrints(Job.objects.all());
+	bestPrints = getBestPrints(allJobs);
+
+	elasticityVsLive = getElasticityVsLive(allJobs);
 	return { 
 			'userCount': numusers, 
 			'numPrints': avgprints, 
 			'successData': successData,
-			'bestPrints': bestPrints };
+			'bestPrints': bestPrints,
+			'elasticityData': elasticityVsLive };
+
+def getElasticityVsLive(jobs):
+	data = []
+	for job in jobs:
+		data.append([job.elasticity, job.live])
+	print(len(data))
+	return data
 
 def getSuccessData():
 	successData = []
@@ -84,7 +98,6 @@ def getSuccessData():
 	jobs = Job.objects.all()
 
 	for job in jobs:
-		print(job)
 		percent = int(job.live)
 		successData[percent][1] += 1
 	return successData;

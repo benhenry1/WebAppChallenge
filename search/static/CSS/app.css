@@ -46,3 +46,12 @@ body.index {
 	background-color: rgb(200, 200, 200);
 	border: 1px solid black;
 }
+
+h3.content-title {
+	text-align: center;
+	margin: 10px;
+}
+
+.successChart {
+	margin: 0 auto;
+}

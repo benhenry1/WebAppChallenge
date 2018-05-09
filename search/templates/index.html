@@ -23,7 +23,7 @@
 	  	data.addRows( {{successData|safe}} );
 
 	  	var chart = new google.visualization.LineChart(document.getElementById('successChart'));
-	  	chart.draw(data,{width: 400, height: 240, title: "Frequency of final Live Percent", hAxis: { title: 'Live % Of Final Print'}})
+	  	chart.draw(data,{title: "Frequency of final Live Percent", hAxis: { title: 'Live % Of Final Print'}})
 	  }
 	</script>
   </head>
@@ -92,11 +92,10 @@
     </div>
     <div id="collapse2" class="panel-collapse collapse">
       <div class="panel-body">
-      	How successful is the average print?
+      	<h3 class="content-title">Average Print Data</h3>
       	<div id="successChart">
 
       	</div>
-      	How successful is the average print? What are some common settings?
       </div>
     </div>
   </div>
@@ -109,7 +108,7 @@
     </div>
     <div id="collapse3" class="panel-collapse collapse">
       <div class="panel-body">
-      		A list of the best 100 prints!
+      		<h3 class="content-title">Most Successful Prints</h3>
       		<div class="printTableContainer">
           {% for print in bestPrints %}
           <div class="printTable row">
