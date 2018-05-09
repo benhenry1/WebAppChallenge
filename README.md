@@ -19,8 +19,8 @@ The data was computer generated, so the numbers are a little boring (100 users e
 ## RUN INSTRUCTIONS:
 1. Download the source into a directory.
 2. In the root directory, run these commands:
-    $ python manage.py makedb
-    $ python manage.py runserver
+> $ python manage.py makedb
+> $ python manage.py runserver
 3. View the page by navigating in browser to "localhost:8000/"
 
 
