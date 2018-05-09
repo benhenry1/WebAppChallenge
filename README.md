@@ -24,7 +24,7 @@ The data was computer generated, so the numbers are a little boring (100 users e
 3. View the page by navigating in browser to "localhost:8000/"
 
 
-##Usage Instructions:
+## Usage Instructions:
 On the homepage, you will see three accordion sections.
 __User Statistics__ will display the number of registed users and the average number of prints all users have completed.
 __Average Statistics__ shows some high-level data about every print job ever completed
